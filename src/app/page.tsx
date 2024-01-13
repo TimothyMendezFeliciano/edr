@@ -111,7 +111,7 @@ export default function HomePage() {
       <div className='flex justify-center mb-4' id='team'>
         <h1 className='text-yellow-400 text-center'>Our Team</h1>
       </div>
-      <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mx-12'>
+      <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mx-12 mb-4'>
         {employees.map((employee: employeeType, index: number) => (
           <div
             className='border-yellow-400 border hover:border-yellow-300 bg-gray-900 bg-opacity-70 shadow-lg py-2 flex flex-col items-center justify-center'
