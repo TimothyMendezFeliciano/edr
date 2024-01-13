@@ -2,7 +2,7 @@
 
 import Head from 'next/head';
 import * as React from 'react';
-import Header from 'src/components/Header';
+import Header, { navigation } from 'src/components/Header';
 
 /**
  * SVGR Support
@@ -18,12 +18,45 @@ import Header from 'src/components/Header';
 
 export default function HomePage() {
   return (
-    <main>
+    <main className='flex flex-col overflow-y-auto h-full'>
       <Head>
         <title>Hi</title>
       </Head>
       <Header />
-      <section className='bg-white'>
+      <section className='flex-grow h-full'>
+        <div className='grid grid-rows-2 gap-1 h-full align-content-end'>
+          <div
+            className={`bg-[url('../assets/icons/edrLogo.png')] bg-no-repeat bg-center bg-contain`}
+          ></div>
+          <div className='pt-4 text-white'>
+            <div className='flex flex-row items-center justify-center'>
+              <h1 className='text-center'>
+                Insert Company Logline. Describe us in one sentence.
+              </h1>
+            </div>
+            <div className='mt-4 flex flex-row items-center justify-center'>
+              <p className='text-lg leading-6 text-gray-300 text-center'>
+                Subdescription for the company. Motivational phrase. A little
+                something extra.
+              </p>
+            </div>
+            <div className='mt-4 flex flex-row items-center justify-center'>
+              <a
+                href={navigation[0].href}
+                className='mx-2 rounded-md bg-yellow-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus:bg-yellow-600'
+              >
+                Explore Properties
+              </a>
+              <a
+                href={navigation[1].href}
+                className='mx-4 text-sm font-semibold leading-6 text-white hover:text-yellow-500'
+              >
+                About Us <span aria-hidden='true'>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/*<div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>*/}
         {/*  <Logo className='w-16' />*/}
         {/*  <h1 className='mt-4'>Next.js + Tailwind CSS + TypeScript Starter</h1>*/}

@@ -56,7 +56,9 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body className='flex flex-1 h-dvh'>
+        <div className='grow bg-black pt-4'>{children}</div>
+      </body>
     </html>
   );
 }
