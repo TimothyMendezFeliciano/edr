@@ -43,13 +43,13 @@ export default function HomePage() {
             <div className='mt-4 flex flex-row items-center justify-center'>
               <a
                 href={navigation[0].href}
-                className='mx-2 rounded-md bg-yellow-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-300 focus-visible:outline focus-visible:outline-2 focus-visible: outline-offset-2 focus-visible:outline-yellow-300'
+                className='mx-2 rounded-md bg-yellow-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus:bg-yellow-600'
               >
-                See Houses
+                Explore Properties
               </a>
               <a
                 href={navigation[1].href}
-                className='mx-4 text-sm font-semibold leading-6 text-white'
+                className='mx-4 text-sm font-semibold leading-6 text-white hover:text-yellow-500'
               >
                 About Us <span aria-hidden='true'>→</span>
               </a>
