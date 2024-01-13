@@ -113,10 +113,13 @@ export default function HomePage() {
       </div>
       <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mx-12'>
         {employees.map((employee: employeeType, index: number) => (
-          <div className='mx-12' key={index}>
+          <div
+            className='border-red-500 border-2 flex flex-col items-center justify-center'
+            key={index}
+          >
             <Image
               src={employee.image}
-              className='rounded-full hover:border-yellow-300 hover:border-2 self-center ml-12 sm:ml-0 md:ml-8'
+              className='rounded-full hover:border-yellow-300 hover:border-2'
               alt='EmployeeImage'
               width={200}
               height={200}
