@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import edrLogo from '../../assets/icons/edrLogo.png';
 
-const navigation = [
+export const navigation = [
   { name: 'Properties', href: '/properties' },
   { name: 'About Us', href: '/about' },
 ];
