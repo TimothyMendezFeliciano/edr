@@ -114,7 +114,7 @@ export default function HomePage() {
       <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mx-12'>
         {employees.map((employee: employeeType, index: number) => (
           <div
-            className='border-red-500 border-2 flex flex-col items-center justify-center'
+            className='border-yellow-400 border hover:border-yellow-300 bg-gray-900 bg-opacity-70 shadow-lg py-2 flex flex-col items-center justify-center'
             key={index}
           >
             <Image
