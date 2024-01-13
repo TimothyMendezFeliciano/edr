@@ -6,19 +6,17 @@ import { useState } from 'react';
 import edrLogo from '../../assets/icons/edrLogo.png';
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Properties', href: '/properties' },
+  { name: 'About Us', href: '/about' },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className='bg-white'>
+    <header className='bg-white m-4 rounded-md'>
       <nav
-        className='flex items-center justify-between p-6 lg:px-8'
+        className='flex items-start justify-between p-6 lg:px-8'
         aria-label='Global'
       >
         <div className='flex lg:flex-1'>

@@ -56,7 +56,13 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body className='flex flex-1 h-dvh'>
+        <div
+          className={`grow bg-black bg-[url('../assets/icons/edrLogo.png')] bg-no-repeat bg-center bg-contain pt-4`}
+        >
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
