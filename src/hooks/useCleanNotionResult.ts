@@ -32,5 +32,13 @@ export function cleanNotionResult(results: NotionPropertyInterface[]) {
     active: properties.Active.checkbox,
     rooms: properties.Rooms.rich_text?.map((r) => r.text)[0],
     title: properties.Property.title?.map((p) => p.text)[0],
+    houseSize: properties['SQFT (House)']?.rich_text?.map(
+      (sqft) => sqft.text
+    )[0],
+    lotSize: properties['Lot Size']?.rich_text?.map((lS) => lS.text)[0],
+    builtIn: properties['Built In']?.rich_text?.map((b) => b.text)[0],
+    hoa: properties.HOA?.rich_text.map((hoa) => hoa.text)[0],
+    description: properties.Description?.rich_text?.map((d) => d.text)[0],
+    features: properties.Features?.rich_text?.map((f) => f.text)[0],
   }));
 }

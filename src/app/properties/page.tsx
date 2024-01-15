@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import * as React from 'react';
 
 import Header from '@/components/Header';
 // import {fetchPagesFromRows} from "@/lib/notion";
@@ -42,18 +44,77 @@ export default async function PropertiesPage() {
       active: true,
       rooms: { content: '7', link: null },
       title: { content: 'First Property', link: null },
+      houseSize: { content: '6,600', link: null },
+      lotSize: { content: '6,600', link: null },
+      builtIn: { content: '2009', link: null },
+      hoa: { content: '72', link: null },
+      description: {
+        content:
+          "Welcome to this exquisite gem in the heart of Palmas Del Mar! Built in 2009, this stunning property boasts 6,600 square feet of luxurious living space, offering the epitome of comfort and style. This thoughtfully designed home features 4 spacious bedrooms and 7.5 bathrooms, ensuring ample space for both family and guests. Every inch of this property has been meticulously remodeled, creating a modern and elegant atmosphere throughout. One of the standout features is the 1,600 square foot basement, including an entertainment space and personal full gym. Nestled beside two empty lots, this property offers an abundance of greenery and tranquility, providing a serene escape from the bustle of daily life. You'll relish full privacy in the backyard, where you can enjoy a pristine pool and even challenge friends to a game of pool on your very own table. In addition, the purchase includes plans for another gazebo, for which the drainage has already been completed. Experience breathtaking ocean views that grace this property. With 38 solar panels generating 16.91 kWh of clean energy and 4 Tesla batteries with a combined capacity of 54 kWh, this home is designed for efficiency, making it environmentally conscious and energy-saving. The Palmas Del Mar community offers a vibrant lifestyle, and for a monthly HOA fee of $864, you'll have access to various amenities and services. Additionally, the property tax is just $2,218.28 bi-annually. Don't miss this rare opportunity to own a piece of paradise that combines modern luxury, energy efficiency, and privacy in the idyllic Palmas Del Mar community.",
+        link: null,
+      },
+      features: { content: '', link: null },
     },
   ];
 
   // console.log('Clean', cleanResults);
   return (
-    <main className='flex h-full flex-col overflow-y-auto border-2 border-blue-400'>
+    <main className='flex h-full flex-col overflow-y-auto'>
       <Head>
         <title>Properties</title>
       </Head>
       <Header />
-      <section className='m-2 flex-grow border-2 border-red-500'>
-        <p className='text-white'>{JSON.stringify(cleanResults)}</p>
+      <div className='mb-4 flex justify-center' id='team'>
+        <h1 className='text-center text-yellow-400'>Our Listings</h1>
+      </div>
+      <section className='m-4 flex-grow border-2 border-red-500'>
+        {/*<p className='text-white'>{JSON.stringify(cleanResults)}</p>*/}
+        {cleanResults.map((item, index) => (
+          <div
+            className='my-2 flex justify-evenly rounded-md bg-white p-2 lg:max-h-80'
+            key={index}
+          >
+            <div className='m-1 basis-1/2 overflow-y-auto rounded-md bg-gray-100 p-2'>
+              <h4 className='leading-6 text-gray-600'>{item.purpose}</h4>
+              <h2 className='leading-6'>{item.title.content}</h2>
+              <div className='flex items-center'>
+                <p className='text-lg text-gray-900 sm:text-xl'>
+                  ${item.price.content}
+                </p>
+                {item.location?.link?.url && (
+                  <div className='border-1 ml-4 border-gray-300 pl-4'>
+                    <a href={item.location.link.url} target='_blank'>
+                      {item.location.content}
+                    </a>
+                  </div>
+                )}
+              </div>
+              <div className='mt-4 space-y-6'>
+                <ul>
+                  <li>Bathrooms: {item.bathrooms.content}</li>
+                  <li>Rooms: {item.rooms.content}</li>
+                  <li>Contact: {item.phoneNumber.content}</li>
+                </ul>
+              </div>
+              {item.description && (
+                <div className='mt-4 space-y-6'>
+                  <p className='text-base text-gray-500'>
+                    {item.description.content}
+                  </p>
+                </div>
+              )}
+            </div>
+            <div className='aspect-h-1 aspect-w-1 m-1 basis-1/2'>
+              <Image
+                className='h-full w-full object-contain object-center'
+                width={100}
+                height={100}
+                src={item.mainImage[0]}
+                alt='Property Image'
+              />
+            </div>
+          </div>
+        ))}
       </section>
     </main>
   );
