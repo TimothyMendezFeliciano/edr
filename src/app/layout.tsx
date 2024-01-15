@@ -56,7 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className='flex flex-1 h-dvh'>
+      <body className='flex h-dvh flex-1'>
         <div className='grow bg-black pt-4'>{children}</div>
       </body>
     </html>

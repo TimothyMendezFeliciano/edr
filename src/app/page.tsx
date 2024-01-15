@@ -32,15 +32,15 @@ export default function HomePage() {
   };
 
   return (
-    <main className='flex flex-col overflow-y-auto h-full'>
+    <main className='flex h-full flex-col overflow-y-auto'>
       <Head>
-        <title>Hi</title>
+        <title>Landing</title>
       </Head>
       <Header />
-      <section className='flex-grow h-[150%] min-h-full'>
-        <div className='grid grid-rows-2 gap-1 h-full align-content-end'>
+      <section className='h-[150%] min-h-full flex-grow'>
+        <div className='align-content-end grid h-full grid-rows-2 gap-1'>
           <div
-            className={`bg-[url('../assets/icons/edrLogo.png')] bg-no-repeat bg-center bg-contain`}
+            className={`bg-[url('../assets/icons/edrLogo.png')] bg-contain bg-center bg-no-repeat`}
           ></div>
           <div className='pt-4 text-white'>
             <div className='flex flex-row items-center justify-center'>
@@ -49,7 +49,7 @@ export default function HomePage() {
               </h1>
             </div>
             <div className='mt-4 flex flex-row items-center justify-center'>
-              <p className='text-lg leading-6 text-gray-300 text-center'>
+              <p className='text-center text-lg leading-6 text-gray-300'>
                 Subdescription for the company. Motivational phrase. A little
                 something extra.
               </p>
@@ -108,24 +108,24 @@ export default function HomePage() {
         {/*  </footer>*/}
         {/*</div>*/}
       </section>
-      <div className='flex justify-center mb-4' id='team'>
-        <h1 className='text-yellow-400 text-center'>Our Team</h1>
+      <div className='mb-4 flex justify-center' id='team'>
+        <h1 className='text-center text-yellow-400'>Our Team</h1>
       </div>
-      <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mx-12 mb-4'>
+      <section className='mx-12 mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3'>
         {employees.map((employee: employeeType, index: number) => (
           <div
-            className='border-yellow-400 border hover:border-yellow-300 bg-gray-900 bg-opacity-70 shadow-lg py-2 flex flex-col items-center justify-center'
+            className='flex flex-col items-center justify-center border border-yellow-400 bg-gray-900 bg-opacity-70 py-2 shadow-lg hover:border-yellow-300'
             key={index}
           >
             <Image
               src={employee.image}
-              className='rounded-full hover:border-yellow-300 hover:border-2'
+              className='rounded-full hover:border-2 hover:border-yellow-300'
               alt='EmployeeImage'
               width={200}
               height={200}
             />
-            <h3 className='text-white text-center'>{employee.name}</h3>
-            <p className='text-lg leading-6 text-gray-300 text-center'>
+            <h3 className='text-center text-white'>{employee.name}</h3>
+            <p className='text-center text-lg leading-6 text-gray-300'>
               {employee.jobTitle}
             </p>
           </div>

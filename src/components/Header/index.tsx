@@ -1,3 +1,4 @@
+'use client';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
@@ -14,7 +15,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className='bg-white m-4 rounded-md'>
+    <header className='m-4 rounded-md bg-white'>
       <nav
         className='flex items-start justify-between p-6 lg:px-8'
         aria-label='Global'
