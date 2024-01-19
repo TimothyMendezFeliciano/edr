@@ -24,10 +24,12 @@ export const fetchPages = React.cache(() => {
   });
 });
 
-export const fetchPagesFromRows = React.cache(() => {
-  return notion.databases.query({
+export const fetchPagesFromRows = React.cache(async () => {
+  const result = await notion.databases.query({
     database_id: process.env.NOTION_PAGE_ID,
   });
+
+  return result;
 
   // const idList = list.results.map(page => page.id)
   //
