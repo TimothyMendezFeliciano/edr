@@ -22,6 +22,11 @@ interface NotionPropertyInterface extends BasicObjectInterface {
 
 export function cleanNotionResult(results: NotionPropertyInterface[]) {
   return results.map(({ properties }) => ({
+    allImages: [
+      ...(properties['Files & media']?.files.map(({ file }) => file?.url) ||
+        ''),
+      ...(properties['Main Image']?.files.map(({ file }) => file?.url) || ''),
+    ],
     images: properties['Files & media']?.files.map(({ file }) => file?.url),
     mainImage: properties['Main Image']?.files.map(({ file }) => file?.url),
     location: properties?.Location.rich_text?.map((loc) => loc.text)[0],

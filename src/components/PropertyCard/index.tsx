@@ -1,10 +1,11 @@
 'use client';
-import Image from 'next/image';
 import * as React from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { FaBath } from 'react-icons/fa';
 import { IoMdContact } from 'react-icons/io';
 import { MdBedroomChild } from 'react-icons/md';
+
+import { ImageCarousel } from '@/components/ImageCarousel';
 
 export default function PropertyCard({ cleanResults }) {
   const ref = useRef(null);
@@ -88,15 +89,16 @@ export default function PropertyCard({ cleanResults }) {
           )}
         </div>
         <div className='aspect-h-1 aspect-w-1 m-1 basis-1/2'>
-          {cleanResults[currentIndex].mainImage[0] && (
-            <Image
-              className='h-full w-full object-contain object-center'
-              width={100}
-              height={100}
-              src={`${cleanResults[currentIndex].mainImage[0]}`}
-              alt='Property Image'
-            />
-          )}
+          {/*{cleanResults[currentIndex].mainImage[0] && (*/}
+          {/*  <Image*/}
+          {/*    className='h-full w-full object-contain object-center'*/}
+          {/*    width={100}*/}
+          {/*    height={100}*/}
+          {/*    src={`${cleanResults[currentIndex].mainImage[0]}`}*/}
+          {/*    alt='Property Image'*/}
+          {/*  />*/}
+          {/*)}*/}
+          <ImageCarousel images={cleanResults[currentIndex].allImages} />
         </div>
       </div>
     </div>
