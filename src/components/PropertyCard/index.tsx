@@ -40,10 +40,10 @@ export default function PropertyCard({ cleanResults }) {
 
   return (
     <div ref={ref}>
-      <div className='my-2 flex flex-row justify-evenly rounded-md bg-white p-2 lg:max-h-80'>
+      <div className='my-2 flex h-[630px] flex-row justify-evenly rounded-md bg-white p-2'>
         <div
           id='PropertyContents'
-          className='m-1 basis-1/2 overflow-y-auto rounded-md bg-gray-100 p-2'
+          className='basis-1/2 overflow-y-auto bg-gray-100 p-2'
         >
           <h4 className='leading-6 text-gray-600'>
             {cleanResults[currentIndex].purpose}
@@ -88,16 +88,7 @@ export default function PropertyCard({ cleanResults }) {
             </div>
           )}
         </div>
-        <div className='aspect-h-1 aspect-w-1 m-1 basis-1/2'>
-          {/*{cleanResults[currentIndex].mainImage[0] && (*/}
-          {/*  <Image*/}
-          {/*    className='h-full w-full object-contain object-center'*/}
-          {/*    width={100}*/}
-          {/*    height={100}*/}
-          {/*    src={`${cleanResults[currentIndex].mainImage[0]}`}*/}
-          {/*    alt='Property Image'*/}
-          {/*  />*/}
-          {/*)}*/}
+        <div className='aspect-h-1 aspect-w-1 basis-1/2 overflow-hidden'>
           <ImageCarousel images={cleanResults[currentIndex].allImages} />
         </div>
       </div>

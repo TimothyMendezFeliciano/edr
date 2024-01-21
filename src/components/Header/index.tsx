@@ -14,6 +14,14 @@ export const navigation = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const scrollIntoFeatures = () => {
+    const options: ScrollIntoViewOptions = {
+      block: 'start',
+      inline: 'nearest',
+      behavior: 'smooth',
+    };
+    document?.getElementById('team')?.scrollIntoView(options);
+  };
   return (
     <header className='m-4 rounded-md bg-white'>
       <nav
@@ -37,15 +45,27 @@ export default function Header() {
           </button>
         </div>
         <div className='hidden lg:flex lg:gap-x-12'>
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className='text-sm font-semibold leading-6 text-gray-900'
-            >
-              {item.name}
-            </a>
-          ))}
+          {/*{navigation.map((item) => (*/}
+          {/*    <a*/}
+          {/*        key={item.name}*/}
+          {/*        href={item.href}*/}
+          {/*        className='text-sm font-semibold leading-6 text-gray-900'*/}
+          {/*    >*/}
+          {/*        {item.name}*/}
+          {/*    </a>*/}
+          {/*))}*/}
+          <a
+            href={navigation[0].href}
+            className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+          >
+            {navigation[0].name}
+          </a>
+          <div
+            onClick={scrollIntoFeatures}
+            className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+          >
+            {navigation[1].name}
+          </div>
         </div>
       </nav>
       <Dialog
@@ -73,15 +93,27 @@ export default function Header() {
           <div className='mt-6 flow-root'>
             <div className='-my-6 divide-y divide-gray-500/10'>
               <div className='space-y-2 py-6'>
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {/*{navigation.map((item) => (*/}
+                {/*  <a*/}
+                {/*    key={item.name}*/}
+                {/*    href={item.href}*/}
+                {/*    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'*/}
+                {/*  >*/}
+                {/*    {item.name}*/}
+                {/*  </a>*/}
+                {/*))}*/}
+                <a
+                  href={navigation[0].href}
+                  className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+                >
+                  {navigation[0].name}
+                </a>
+                <div
+                  onClick={scrollIntoFeatures}
+                  className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+                >
+                  {navigation[1].name}
+                </div>
               </div>
             </div>
           </div>

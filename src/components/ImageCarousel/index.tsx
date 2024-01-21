@@ -1,11 +1,14 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { wrap } from 'popmotion';
 import { useState } from 'react';
+import { useInterval } from 'usehooks-ts';
 
 const variants = {
   enter: (direction: number) => {
     return {
+      zIndex: 0,
       x: direction > 0 ? 1000 : -1000,
+      y: 0,
       opacity: 0,
     };
   },
@@ -13,6 +16,9 @@ const variants = {
     zIndex: 1,
     x: 0,
     opacity: 1,
+    transition: {
+      delay: 0.3,
+    },
   },
   exit: (direction: number) => {
     return {
@@ -40,12 +46,24 @@ export function ImageCarousel({ images }) {
     setPage([page + newDirection, newDirection]);
   };
 
+  const [delay] = useState<number>(3500);
+  const [isPlaying, setPlaying] = useState<boolean>(true);
+
+  useInterval(
+    () => {
+      paginate(1);
+    },
+    isPlaying ? delay : null
+  );
+
   return (
     <>
       <AnimatePresence initial={false} custom={direction}>
         <motion.img
           key={page}
           className='h-full w-full object-contain object-center'
+          onHoverStart={() => setPlaying(false)}
+          onHoverEnd={() => setPlaying(true)}
           src={images[imageIndex]}
           custom={direction}
           variants={variants}
@@ -53,7 +71,7 @@ export function ImageCarousel({ images }) {
           animate='center'
           exit='exit'
           transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
+            x: { type: 'just', stiffness: 100, damping: 10 },
             opacity: { duration: 0.2 },
           }}
           drag='x'
@@ -61,7 +79,6 @@ export function ImageCarousel({ images }) {
           dragElastic={1}
           onDragEnd={(e, { offset, velocity }) => {
             const swipe = swipePower(offset.x, velocity.x);
-
             if (swipe < -swipeConfidenceThreshold) {
               paginate(1);
             } else if (swipe > swipeConfidenceThreshold) {
@@ -70,6 +87,12 @@ export function ImageCarousel({ images }) {
           }}
         />
       </AnimatePresence>
+      {/*<div className="next" onClick={() => paginate(1)}>*/}
+      {/*  {"‣"}*/}
+      {/*</div>*/}
+      {/*<div className="prev" onClick={() => paginate(-1)}>*/}
+      {/*  {"‣"}*/}
+      {/*</div>*/}
     </>
   );
 }
