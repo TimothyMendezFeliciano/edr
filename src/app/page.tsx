@@ -5,6 +5,7 @@ import Image from 'next/image';
 import * as React from 'react';
 import Header, { navigation } from 'src/components/Header';
 
+import { siteConfig } from '@/constant/config';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { employees, employeeType } from '@/constant/employees';
@@ -44,14 +45,11 @@ export default function HomePage() {
           ></div>
           <div className='pt-4 text-white'>
             <div className='flex flex-row items-center justify-center'>
-              <h1 className='text-center'>
-                Insert Company Logline. Describe us in one sentence.
-              </h1>
+              <h1 className='text-center'>{siteConfig.logline}</h1>
             </div>
             <div className='mt-4 flex flex-row items-center justify-center'>
               <p className='text-center text-lg leading-6 text-gray-300'>
-                Subdescription for the company. Motivational phrase. A little
-                something extra.
+                {siteConfig.subDescription}
               </p>
             </div>
             <div className='mt-4 flex flex-row items-center justify-center'>
