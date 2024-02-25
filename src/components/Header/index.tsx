@@ -7,8 +7,8 @@ import { useState } from 'react';
 import edrLogo from '../../assets/icons/edrLogo.png';
 
 export const navigation = [
-  { name: 'Properties', href: '/properties' },
-  { name: 'About Us', href: '/about' },
+  { name: 'Explore Properties', href: '/properties' },
+  { name: 'About Us', href: '/aboutUs' },
 ];
 
 export default function Header() {
@@ -60,12 +60,12 @@ export default function Header() {
           >
             {navigation[0].name}
           </a>
-          <div
-            onClick={scrollIntoFeatures}
+          <a
+            href={navigation[1].href}
             className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
           >
             {navigation[1].name}
-          </div>
+          </a>
         </div>
       </nav>
       <Dialog

@@ -1,14 +1,10 @@
 'use client';
 
 import Head from 'next/head';
-import Image from 'next/image';
 import * as React from 'react';
 import Header, { navigation } from 'src/components/Header';
 
 import { siteConfig } from '@/constant/config';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { employees, employeeType } from '@/constant/employees';
 
 /**
  * SVGR Support
@@ -23,22 +19,13 @@ import { employees, employeeType } from '@/constant/employees';
 // to customize the default configuration.
 
 export default function HomePage() {
-  const scrollIntoFeatures = () => {
-    const options: ScrollIntoViewOptions = {
-      block: 'start',
-      inline: 'nearest',
-      behavior: 'smooth',
-    };
-    document?.getElementById('team')?.scrollIntoView(options);
-  };
-
   return (
-    <main className='flex h-full flex-col overflow-y-auto'>
+    <main className='flex h-dvh flex-col overflow-y-hidden'>
       <Head>
-        <title>Landing</title>
+        <title>El Dorado Realty</title>
       </Head>
       <Header />
-      <section className='h-[150%] min-h-full flex-grow'>
+      <section className='flex-grow'>
         <div className='align-content-end grid h-full grid-rows-2 gap-1'>
           <div
             className={`bg-[url('../assets/icons/edrLogo.png')] bg-contain bg-center bg-no-repeat`}
@@ -57,14 +44,15 @@ export default function HomePage() {
                 href={navigation[0].href}
                 className='mx-2 rounded-md bg-yellow-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus:bg-yellow-600'
               >
-                Explore Properties
+                {navigation[0].name}
               </a>
-              <div
-                onClick={scrollIntoFeatures}
+              <a
+                href={navigation[1].href}
                 className='mx-4 text-sm font-semibold leading-6 text-white hover:text-yellow-500'
               >
-                About Us <span aria-hidden='true'>→</span>
-              </div>
+                {navigation[1].name}
+                <span aria-hidden='true'>→</span>
+              </a>
             </div>
           </div>
         </div>
@@ -105,29 +93,6 @@ export default function HomePage() {
         {/*    </UnderlineLink>*/}
         {/*  </footer>*/}
         {/*</div>*/}
-      </section>
-      <div className='mb-4 flex justify-center' id='team'>
-        <h1 className='text-center text-yellow-400'>Our Team</h1>
-      </div>
-      <section className='mx-12 mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3'>
-        {employees.map((employee: employeeType, index: number) => (
-          <div
-            className='flex flex-col items-center justify-center border border-yellow-400 bg-gray-900 bg-opacity-70 py-2 shadow-lg hover:border-yellow-300'
-            key={index}
-          >
-            <Image
-              src={employee.image}
-              className='rounded-full hover:border-2 hover:border-yellow-300'
-              alt='EmployeeImage'
-              width={200}
-              height={200}
-            />
-            <h3 className='text-center text-white'>{employee.name}</h3>
-            <p className='text-center text-lg leading-6 text-gray-300'>
-              {employee.jobTitle}
-            </p>
-          </div>
-        ))}
       </section>
     </main>
   );

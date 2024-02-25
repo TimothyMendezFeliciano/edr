@@ -1,0 +1,7 @@
+- Move 'Our Team' to its own page.
+- Change 'Our Team' to a description of the company itself. About Us.
+- https://tailwindui.com/components/marketing/sections/team-sections - Be sure to use the one 'With Vertical Images'
+- Partner Connections use something similar.
+- Contact Page. With email, location, phone-number.
+- Contact Us Page.
+- Subjects: Looking for Rental, Sell, Buy, Investment Opportunities, General/Other.
