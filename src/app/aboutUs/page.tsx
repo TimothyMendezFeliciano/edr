@@ -40,10 +40,10 @@ export default function AboutUsPage() {
       {/*</section>*/}
       <section className='mx-12 mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3'>
         <div className='mx-auto max-w-2xl lg:mx-0'>
-          <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
+          <h2 className='text-3xl font-bold tracking-tight text-yellow-500 hover:text-yellow-400 sm:text-4xl'>
             Our team
           </h2>
-          <p className='mt-6 text-lg leading-8 text-gray-600'>
+          <p className='mt-6 text-lg leading-8 text-gray-100'>
             We’re a dynamic group of individuals who are passionate about what
             we do and dedicated to delivering the best results for our clients.
           </p>
@@ -57,6 +57,8 @@ export default function AboutUsPage() {
               <Image
                 className='aspect-[3/2] w-full rounded-2xl object-cover'
                 src={person.image}
+                width={100}
+                height={100}
                 alt=''
               />
               <h3 className='mt-6 text-lg font-semibold leading-8 text-gray-900'>

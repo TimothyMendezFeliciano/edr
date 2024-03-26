@@ -9,6 +9,7 @@ import edrLogo from '../../assets/icons/edrLogo.png';
 export const navigation = [
   { name: 'Explore Properties', href: '/properties' },
   { name: 'About Us', href: '/aboutUs' },
+  { name: 'Partners', href: '/partners' },
 ];
 
 export default function Header() {
@@ -65,6 +66,12 @@ export default function Header() {
             className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
           >
             {navigation[1].name}
+          </a>
+          <a
+            href={navigation[2].href}
+            className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+          >
+            {navigation[2].name}
           </a>
         </div>
       </nav>
