@@ -5,3 +5,22 @@
 - Contact Page. With email, location, phone-number.
 - Contact Us Page.
 - Subjects: Looking for Rental, Sell, Buy, Investment Opportunities, General/Other.
+
+
+
+
+
+<label htmlFor="subject" className="sr-only">
+                                    Subject
+                                </label>
+                                <select
+                                    id="subject"
+                                    name="subject"
+                                    className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+                                >
+                                    <option>Looking for Rental</option>
+                                    <option>Looking for Investment Opportunities</option>
+                                    <option>Looking to Buy</option>
+                                    <option>Looking to Sell</option>
+                                    <option>General Questions/Other</option>
+                                </select>

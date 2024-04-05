@@ -10,6 +10,7 @@ export const navigation = [
   { name: 'Explore Properties', href: '/properties' },
   { name: 'About Us', href: '/aboutUs' },
   { name: 'Partners', href: '/partners' },
+  { name: 'Contact Us', href: '/contactUs' },
 ];
 
 export default function Header() {
@@ -56,32 +57,38 @@ export default function Header() {
           {/*    </a>*/}
           {/*))}*/}
           <a
-            href={navigation[0].href}
-            className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+              href={navigation[0].href}
+              className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
           >
             {navigation[0].name}
           </a>
           <a
-            href={navigation[1].href}
-            className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+              href={navigation[1].href}
+              className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
           >
             {navigation[1].name}
           </a>
           <a
-            href={navigation[2].href}
-            className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+              href={navigation[3].href}
+              className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+          >
+            {navigation[3].name}
+          </a>
+          <a
+              href={navigation[2].href}
+              className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
           >
             {navigation[2].name}
           </a>
         </div>
       </nav>
       <Dialog
-        as='div'
-        className='lg:hidden'
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
+          as='div'
+          className='lg:hidden'
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
       >
-        <div className='fixed inset-0 z-10' />
+        <div className='fixed inset-0 z-10'/>
         <Dialog.Panel className='fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
           <div className='flex items-center justify-between'>
             <a href='/' className='-m-1.5 p-1.5'>
