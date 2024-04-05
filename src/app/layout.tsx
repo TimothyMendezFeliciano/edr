@@ -4,8 +4,8 @@ import * as React from 'react';
 import '@/styles/globals.css';
 // !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css';
-
 import { siteConfig } from '@/constant/config';
+import {ToastContainer} from "react-toastify";
 
 // !STARTERCONF Change these default meta
 // !STARTERCONF Look at @/constant/config to change them
@@ -56,7 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className='flex flex-1 h-dvh'>
+      <body className=''>
         <div className='grow bg-black pt-4'>{children}</div>
       </body>
     </html>

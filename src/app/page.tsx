@@ -1,13 +1,10 @@
 'use client';
 
 import Head from 'next/head';
-import Image from 'next/image';
 import * as React from 'react';
 import Header, { navigation } from 'src/components/Header';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { employees, employeeType } from '@/constant/employees';
+import { siteConfig } from '@/constant/config';
 
 /**
  * SVGR Support
@@ -22,36 +19,24 @@ import { employees, employeeType } from '@/constant/employees';
 // to customize the default configuration.
 
 export default function HomePage() {
-  const scrollIntoFeatures = () => {
-    const options: ScrollIntoViewOptions = {
-      block: 'start',
-      inline: 'nearest',
-      behavior: 'smooth',
-    };
-    document?.getElementById('team')?.scrollIntoView(options);
-  };
-
   return (
-    <main className='flex flex-col overflow-y-auto h-full'>
+    <main className='flex h-dvh flex-col overflow-y-hidden'>
       <Head>
-        <title>Hi</title>
+        <title>El Dorado Realty</title>
       </Head>
       <Header />
-      <section className='flex-grow h-[150%] min-h-full'>
-        <div className='grid grid-rows-2 gap-1 h-full align-content-end'>
+      <section className='flex-grow'>
+        <div className='align-content-end grid h-full grid-rows-2 gap-1'>
           <div
-            className={`bg-[url('../assets/icons/edrLogo.png')] bg-no-repeat bg-center bg-contain`}
+            className={`bg-[url('../assets/icons/edrLogo.png')] bg-contain bg-center bg-no-repeat`}
           ></div>
           <div className='pt-4 text-white'>
             <div className='flex flex-row items-center justify-center'>
-              <h1 className='text-center'>
-                Insert Company Logline. Describe us in one sentence.
-              </h1>
+              <h1 className='text-center'>{siteConfig.logline}</h1>
             </div>
             <div className='mt-4 flex flex-row items-center justify-center'>
-              <p className='text-lg leading-6 text-gray-300 text-center'>
-                Subdescription for the company. Motivational phrase. A little
-                something extra.
+              <p className='text-center text-lg leading-6 text-gray-300'>
+                {siteConfig.subDescription}
               </p>
             </div>
             <div className='mt-4 flex flex-row items-center justify-center'>
@@ -59,14 +44,15 @@ export default function HomePage() {
                 href={navigation[0].href}
                 className='mx-2 rounded-md bg-yellow-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus:bg-yellow-600'
               >
-                Explore Properties
+                {navigation[0].name}
               </a>
-              <div
-                onClick={scrollIntoFeatures}
+              <a
+                href={navigation[1].href}
                 className='mx-4 text-sm font-semibold leading-6 text-white hover:text-yellow-500'
               >
-                About Us <span aria-hidden='true'>→</span>
-              </div>
+                {navigation[1].name}
+                <span aria-hidden='true'>→</span>
+              </a>
             </div>
           </div>
         </div>
@@ -107,29 +93,6 @@ export default function HomePage() {
         {/*    </UnderlineLink>*/}
         {/*  </footer>*/}
         {/*</div>*/}
-      </section>
-      <div className='flex justify-center mb-4' id='team'>
-        <h1 className='text-yellow-400 text-center'>Our Team</h1>
-      </div>
-      <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mx-12 mb-4'>
-        {employees.map((employee: employeeType, index: number) => (
-          <div
-            className='border-yellow-400 border hover:border-yellow-300 bg-gray-900 bg-opacity-70 shadow-lg py-2 flex flex-col items-center justify-center'
-            key={index}
-          >
-            <Image
-              src={employee.image}
-              className='rounded-full hover:border-yellow-300 hover:border-2'
-              alt='EmployeeImage'
-              width={200}
-              height={200}
-            />
-            <h3 className='text-white text-center'>{employee.name}</h3>
-            <p className='text-lg leading-6 text-gray-300 text-center'>
-              {employee.jobTitle}
-            </p>
-          </div>
-        ))}
       </section>
     </main>
   );
